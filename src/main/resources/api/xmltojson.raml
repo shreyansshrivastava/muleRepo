@@ -1,0 +1,22 @@
+#%RAML 1.0
+title: xmltojson
+description: conver xml to json
+version: v1.0
+traits:
+  client-id-required:
+    headers:
+      client_id:
+        type: string
+      client_secret:
+        type: string
+/xml2json:
+  post:
+    is: [client-id-required]
+    body:
+      application/xml:
+        description: xml input
+    responses:
+      200:
+        body:
+          application/json:
+            description: converted json
