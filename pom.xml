@@ -47,8 +47,39 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+					 <cloudHubDeployment>
+					  <uri>${anypoint.uri}</uri>
+					  <muleVersion>${mule.version}</muleVersion>
+					  <businessGroup>${business}</businessGroup>
+					  <username>${anypoint.username}</username>
+					  <password>${anypoint.password}</password>
+					  <applicationName>${appname}</applicationName>
+					  <environment>${env}</environment>
+					  <region>${region}</region>
+					  <workers>${workers}</workers>
+					  <workerType>${vCore}</workerType>
+				   </cloudHubDeployment>
 				</configuration>
+				<executions>
+					<execution>
+					   <id>deploy</id>
+					   <phase>deploy</phase>
+					   <goals>
+						  <goal>deploy</goal>
+					   </goals>
+					</execution>
+         </executions>
 			</plugin>
+			<plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-compiler-plugin</artifactId>
+         <version>3.7.0</version>
+         <configuration>
+            <compilerArgs>
+               <args>-parameters</args>
+            </compilerArgs>
+         </configuration>
+      </plugin>
 		</plugins>
 	</build>
 
@@ -82,17 +113,17 @@
         <artifactId>mule-maven-plugin</artifactId>
         <configuration>
           <cloudHubDeployment>
-            <muleVersion>${mule.version}</muleVersion> 
-            <username>${anypoint.username}</username> 
-            <password>${anypoint.password}</password> 
-            <applicationName>${artifactId}-${maven.build.timestamp}</applicationName> 
-            <environment>${cloundhub.env}</environment> 
-            <businessGroup>${anypoint.businessGroup}</businessGroup>
-            <region>${cloudhub.region}</region>
-            <uri>${anypoint.uri}</uri> 
-            <workerType>Small</workerType> 
-            <workers>1</workers>
-          </cloudHubDeployment>
+      <uri>${anypoint.uri}</uri>
+      <muleVersion>${muleVersion}</muleVersion>
+      <businessGroup>${businessGroup}</businessGroup>
+      <username>${username}</username>
+      <password>${password}</password>
+      <applicationName>${applicationName}</applicationName>
+      <environment>${environment}</environment>
+      <region>${region}</region>
+      <workers>${workers}</workers>
+      <workerType>${workerType}</workerType>
+   </cloudHubDeployment>
         </configuration>
         <executions>
           <execution>
