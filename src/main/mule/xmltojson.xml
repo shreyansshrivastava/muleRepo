@@ -6,7 +6,7 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
         <http:listener-connection host="0.0.0.0" port="8081" />
     </http:listener-config>
     <apikit:config name="xmltojson-config" api="xmltojson.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
-  <api-gateway:autodiscovery apiId="16918376" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="a91fc16c-8be7-47b2-a4b0-e15a2d987acc" flowRef="xmltojson-main" />
+    <api-gateway:autodiscovery apiId="16983177" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="a91fc16c-8be7-47b2-a4b0-e15a2d987acc" flowRef="xmltojson-main" /> 
 	<configuration-properties doc:name="Configuration properties" doc:id="680e8f61-dbe0-4d44-8d9c-1c324abe4e56" file="config.yaml" />
 	<flow name="xmltojson-main">
         <http:listener config-ref="xmltojson-httpListenerConfig" path="/api/*">
